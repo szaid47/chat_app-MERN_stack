@@ -7,5 +7,23 @@
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-scripts": "5.0.1"
-  }
+  },
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "build": "npm install --prefix backend && npm install --prefix frontend && npm run build --prefix frontend",
+    "start":"npm run start --prefix backend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/szaid47/chat_app-MERN_stack-.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/szaid47/chat_app-MERN_stack-/issues"
+  },
+  "homepage": "https://github.com/szaid47/chat_app-MERN_stack-#readme",
+  "description": ""
 }
