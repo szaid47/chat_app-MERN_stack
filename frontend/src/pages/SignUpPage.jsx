@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useAuthStore } from '../store/UseAuthStore';
+import { useAuthStore } from '../store/useAuthStore';
 import { Eye, EyeOff, Loader2, Lock, MessageSquare } from 'lucide-react';
 import {User} from 'lucide-react';
 import { Mail } from 'lucide-react';

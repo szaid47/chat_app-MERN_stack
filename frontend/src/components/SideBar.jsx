@@ -2,16 +2,22 @@ import React, { useEffect, useState } from "react";
 import { useChatStore } from "../store/useChatStore";
 import SidebarSkeleton from "./skeletons/SIdebarSkeleton";
 import { Users } from "lucide-react"; // Ensure you import Users icon if required
+import { useAuthStore } from "../store/useAuthStore"; // Assuming auth details are managed in a store
 
 const SideBar = () => {
   const { getUsers, users, selectedUser, setSelectedUser, isUserLoading } = useChatStore();
+  const { authUser } = useAuthStore(); // Access the current authenticated user's information
   const [showOnlineOnly, setShowOnlineOnly] = useState(false);
 
-  // Placeholder for online users (dynamic logic should be added to populate this)
-  const onlineUsers = users.filter((user) => user.isOnline); // Example condition
-  const filteredUsers = showOnlineOnly
-    ? onlineUsers // Show only online users
-    : users; // Show all users
+  // Placeholder for online users
+  const {onlineUsers} = useAuthStore();
+
+  // Filtered users excluding the current user
+  const filteredUsers = users.filter(
+    (user) =>
+      user._id !== authUser?._id && // Exclude current user
+      (!showOnlineOnly || user.isOnline) // Apply "online only" filter if enabled
+  );
 
   useEffect(() => {
     getUsers(); // Fetch users on mount
@@ -38,7 +44,7 @@ const SideBar = () => {
             />
             <span className="text-sm">Show online only</span>
           </label>
-          <span className="text-xs text-zinc-500">({onlineUsers.length} online)</span>
+          <span className="text-xs text-zinc-500">({onlineUsers.length - 1} online)</span>
         </div>
       </div>
 
