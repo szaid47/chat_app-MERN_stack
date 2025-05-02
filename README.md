@@ -46,7 +46,7 @@ Konvo/
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/konvo.git
+git clone https://github.com/szaid47/konvo.git
 cd konvo
 
 # Build and run all services
@@ -60,6 +60,7 @@ Backend API: http://localhost:5001/api
 
 Note: You may need to configure .env files inside backend/ and frontend/.
 
+```
 📸 Screenshots
 
 
